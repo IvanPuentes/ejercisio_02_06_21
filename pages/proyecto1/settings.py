@@ -62,6 +62,7 @@ EMAIL_USE_TLS = True
 
 INSTALLED_APPS = [
     'mipagina.apps.MipaginaConfig',
+    'orders.apps.OrdersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -168,8 +169,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATICFILES_DIRS =(
     os.path.join(BASE_DIR, "static"),
@@ -181,6 +183,5 @@ AUTH_USER_MODEL = 'mipagina.UsuarioPers'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-
-
-
+STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('STRIPE_TEST_PUBLISHABLE_KEY')
+STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')

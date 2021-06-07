@@ -1,10 +1,11 @@
+from django.contrib.auth.models import Permission
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from .models import Post,DescripLib,Manga,Autores,Comentario,CV
 from .forms import UsuarioPersCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
-
+from django.db.models import Q
 
 #vista de la pagina principal 
 class HomePageView(ListView):
@@ -52,6 +53,8 @@ class Descrip_libPageView(ListView):
     template_name = 'descrip_lib.html'
     model = Post
     context_object_name='Listado1'
+    login_url = 'login'
+    permission_required = ('post.special_status')
 #vista de la pagina de descripcion de los libros 
 class DetallePageView(DetailView):
     template_name = 'descAutores.html'
@@ -167,3 +170,14 @@ class CVDeleteView(LoginRequiredMixin,DeleteView):
         if obj.autor != self.request.user:
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
+
+class SearchResultListview(ListView):
+    model = Post
+    context_object_name = 'listaBook'
+    template_name = 'search_result.html'
+
+    def get_queryset(self): 
+        return Post.objects.filter(
+            Q(text_icontains='Prueba')
+        )
+        

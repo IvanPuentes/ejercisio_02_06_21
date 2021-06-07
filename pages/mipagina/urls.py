@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomePageView,RevistaPageView,MangaPageView,Descrip_libPageView,AutoresPageView,DetallePageView,CrearPageView,UpdatePageView,DeletePageView,RegistrarView,ComentarioCreateView,ControlView,CVView,CVPrincipalView,CVEditView,CVDeleteView,TecView
+from .views import HomePageView,RevistaPageView,MangaPageView,Descrip_libPageView,AutoresPageView,DetallePageView,CrearPageView,UpdatePageView,DeletePageView,RegistrarView,ComentarioCreateView,ControlView,CVView,CVPrincipalView,CVEditView,CVDeleteView,TecView,SearchResultListview
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 #importar las librerias y los archivos 
 
@@ -23,7 +23,7 @@ urlpatterns=[
     path('Control',ControlView.as_view(), name='Control'),
     path('Nombre/<int:pk>/Update',CVEditView.as_view(),name='EditCV'),
     path('Nombre/<int:pk>/delet',CVDeleteView.as_view(),name='deleteCV'),
-
+    path('search', SearchResultListview.as_view(), name='search_result'),
     #rutas para los cambios y reset de contraseñas 
     path('password_reset/', PasswordResetView.as_view(
         template_name='registration/password_reset.html'

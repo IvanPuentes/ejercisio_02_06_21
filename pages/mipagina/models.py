@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Permission
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -64,6 +64,12 @@ class Post(models.Model):
         default="",
         on_delete= models.CASCADE,
     )
+
+    class Meta:#permiso nuevo
+        permissions = [
+            ('special_status','Puede ver todos los libros'),
+        ]
+
     #campo que se mostrara en el admin
     def __str__(self):
         return self.text
@@ -87,7 +93,7 @@ class Comentario(models.Model):
     
     
 class CV(models.Model):
-    Foto = models.ImageField(null=True, blank=True, upload_to="img/")
+    Foto = models.ImageField(null=True, blank=True, upload_to="images/")
     Nombre = models.TextField(default="")
     Experiencia = models.TextField(default="")
     Preparatoria = models.TextField(default="")

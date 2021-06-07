@@ -1,0 +1,16 @@
+
+{% block title %}Orders{% endblock title%}
+{% block content %}
+<h1>Orders</h1>
+<p>Compra por $15.00</p>
+<form action="{% url 'charge' %}" method="post">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ stripe-key }}"
+        data-description="Acceso total"
+        data-amount="1500"
+        data-locale="auto">
+    </script>
+
+</form>
+{% endblock content%}

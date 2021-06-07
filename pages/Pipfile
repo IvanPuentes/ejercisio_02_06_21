@@ -8,6 +8,7 @@ django = "*"
 psycopg2-binary = "*"
 django-allauth = "*"
 pillow = "*"
+stripe = "*"
 
 [dev-packages]
 

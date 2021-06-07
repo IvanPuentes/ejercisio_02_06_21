@@ -188,8 +188,9 @@
 		
 		<div id="promo">
 			<div id="linea"></div>
-            
-			<img scr="/static{{post.Foto.url}}" id="home_img">
+            {{post.Foto.url}}
+			<img src="{{post.Foto.url}}" id="home_img">
+
             <br>
 			<li id="li_titulo_bd">Nombre:{{ post.Nombre }}</li>
 			<br>

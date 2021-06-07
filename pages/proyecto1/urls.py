@@ -25,6 +25,7 @@ urlpatterns = [
     path('mipagina/', include('mipagina.urls')),
     path('accounts/', include('allauth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('orders/', include('orders.urls')),
     path('Home',HomePageView.as_view(), name='home'),
     path('Manga',MangaPageView.as_view(), name='mangas'),
     path('Revista',RevistaPageView.as_view(), name='revistas'),
@@ -38,5 +39,4 @@ urlpatterns = [
     path('Nombre/<int:pk>/Update',CVEditView.as_view(),name='EditCV'),
     path('Nombre/<int:pk>/delete',CVDeleteView.as_view(),name='deleteCV'),
      
-]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
