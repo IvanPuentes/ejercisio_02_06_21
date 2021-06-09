@@ -6,7 +6,7 @@
 <form action="{% url 'charge' %}" method="post">
     {% csrf_token %}
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="{{ stripe-key }}"
+        data-key="{{ stripe_key }}"
         data-description="Acceso total"
         data-amount="1500"
         data-locale="auto">

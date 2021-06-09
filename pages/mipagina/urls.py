@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from .views import HomePageView,RevistaPageView,MangaPageView,Descrip_libPageView,AutoresPageView,DetallePageView,CrearPageView,UpdatePageView,DeletePageView,RegistrarView,ComentarioCreateView,ControlView,CVView,CVPrincipalView,CVEditView,CVDeleteView,TecView,SearchResultListview
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 #importar las librerias y los archivos 
@@ -7,6 +7,7 @@ from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, 
 
 urlpatterns=[
     path('',HomePageView.as_view(),name='home'),
+    path('orders/', include('orders.urls')),
     path('mangas',MangaPageView .as_view(),name='mangas'),
      path('Tec',TecView .as_view(),name='tec'),
     path('revistas',RevistaPageView.as_view(),name='revistas'),

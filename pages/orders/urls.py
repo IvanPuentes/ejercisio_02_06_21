@@ -1,8 +1,8 @@
 from django.urls import path
-from django.urls.resolvers import URLPattern
+from django.urls import path
 from orders.views import OrdersPageView, charge
 
-URLPattern = [
+urlpatterns=[
     path('charge/', charge, name='charge'),
-    path('',OrdersPageView.as_view(), name='orders'),
+    path('orders/purchase',OrdersPageView.as_view(), name='orders'),
 ]

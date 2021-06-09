@@ -16,6 +16,7 @@ Including another URLconf
 
 from django.urls import path,include
 from django.contrib import admin
+from orders.views import OrdersPageView, charge
 from mipagina.views import HomePageView,RevistaPageView,MangaPageView,Descrip_libPageView,AutoresPageView,RegistrarView,ControlView,CVView,CVPrincipalView,CVEditView,CVDeleteView,TecView
 from django.views.generic.base import TemplateView
 from django.conf import settings
@@ -26,6 +27,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('orders/', include('orders.urls')),
+    path('charge/', charge, name='charge'),
+    path('orders/purchase',OrdersPageView.as_view(), name='orders'),
     path('Home',HomePageView.as_view(), name='home'),
     path('Manga',MangaPageView.as_view(), name='mangas'),
     path('Revista',RevistaPageView.as_view(), name='revistas'),

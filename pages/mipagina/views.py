@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 
+
 #vista de la pagina principal 
 class HomePageView(ListView):
     template_name = 'home.html'
