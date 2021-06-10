@@ -29,7 +29,7 @@ DEBUG = int(os.environ.get('DEBUG',default=0))
 
 ENVIROMENT = os.environ.get('ENVIROMENT', default='development')
 
-ALLOWED_HOSTS=['.herokuapp.com','localhost','127.0.0.1','0.0.0.0']
+ALLOWED_HOSTS=['practicahd.herokuapp.com','localhost','127.0.0.1','0.0.0.0']
 
 if ENVIROMENT == 'production':
     SECURE_BROWSER_XSS_FILTER = True
@@ -41,6 +41,7 @@ if ENVIROMENT == 'production':
     SECURE_CONTENT_TYPE_NOSNIFF =True
     SESSION_COOKIE_SECURE =True
     CSRF_COOKIE_SECURE =True
+    SECURE_PROXY_SSK_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
 #-----------------------------------------------------
 
 ACCOUNT_EMAIL_VERIFICATION = True
