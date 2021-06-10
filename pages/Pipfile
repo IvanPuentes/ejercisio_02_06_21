@@ -9,6 +9,9 @@ psycopg2-binary = "*"
 django-allauth = "*"
 pillow = "*"
 stripe = "*"
+whitenoise = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
