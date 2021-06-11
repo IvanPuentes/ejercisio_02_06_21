@@ -32,6 +32,7 @@ DEBUG = int(os.environ.get('DEBUG',default=0))
 ENVIROMENT = os.environ.get('ENVIROMENT', default='development')
 
 ALLOWED_HOSTS=['practicahd.herokuapp.com','localhost','127.0.0.1','0.0.0.0']
+
 if ENVIROMENT == 'production':
     SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = 'DENY'
