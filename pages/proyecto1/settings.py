@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-m@=-0vpl3=#nrz5l_fi+l22vcruv@!1=56$(dkeg52g@kmwkv!'
 
-#SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = os.environ.get('secret_key')
 #SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 DEBUG = int(os.environ.get('DEBUG',default=0))
@@ -33,17 +33,16 @@ ENVIROMENT = os.environ.get('ENVIROMENT', default='development')
 
 ALLOWED_HOSTS=['practicahd.herokuapp.com','localhost','127.0.0.1','0.0.0.0']
 
-if ENVIROMENT == 'production':
-    SECURE_BROWSER_XSS_FILTER = True
-    X_FRAME_OPTIONS = 'DENY'
-    SECURE_SSL_REDIRECT = True
-    SECURE_HSTS_SECONDS=3600
-    SECURE_HSTS_INCLUDE_SUBDOMAINS=True
-    SECURE_HSTS_PRELOAD = True
-    SECURE_CONTENT_TYPE_NOSNIFF =True
-    SESSION_COOKIE_SECURE =True
-    CSRF_COOKIE_SECURE =True
-    SECURE_PROXY_SSK_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS=3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF =True
+SESSION_COOKIE_SECURE =True
+CSRF_COOKIE_SECURE =True
+SECURE_PROXY_SSK_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
 #-----------------------------------------------------
 
 ACCOUNT_EMAIL_VERIFICATION = True
@@ -143,9 +142,9 @@ WSGI_APPLICATION = 'proyecto1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER':'postgres',
-        'PASSWORD':'postgres',
+        'NAME': 'NAME_POSTGRES',
+        'USER':'NAME_POSTGRES',
+        'PASSWORD':'NAME_POSTGRES',
         'HOST':'db',
         'PORT':5432
     }
@@ -209,4 +208,4 @@ STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')
 
 import dj_database_url
 
-DATABASES = {'default':dj_database_url.config() }
+DATABASES = { 'default' : dj_database_url.config() }

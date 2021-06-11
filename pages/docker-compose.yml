@@ -6,6 +6,8 @@ services:
         environment: 
             - ENVIROMENT=development
             - DEBUG=1
+            #- secret_key=django-insecure-m@=-0vpl3=#nrz5l_fi+l22vcruv@!1=56$(dkeg52g@kmwkv!
+            - NAME_POSTGRES=postgres
             - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_51IyPt5ILM51eLq0kNKDXDERtMbgY8MHrHaJA7cAqeHaTHb75x4Yh5AEp6QVw3SeVQQdHOf7LJZK6wZi7R6P2ilR2000cykvNRo
             - STRIPE_TEST_SECRET_KEY=sk_test_51IyPt5ILM51eLq0kQoQfHRo6oYEyTbAoYXEmRm5PiDFxWTYFG0pzFtvg4xvSK2wa2Xnkt9Mg2Xt3v993nKHniI5s00R2oU8IAO
             
